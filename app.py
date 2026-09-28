@@ -6,7 +6,7 @@ st.set_page_config(
 )
 st.title(" ✨ My AI chatbot")
 
-if "message" not in st.session_state:
+if "messages" not in st.session_state:
     st.session_state.messages = []
 for message in  st.session_state.messages:
     with st.chat_message(message["role"]):
@@ -30,7 +30,7 @@ if prompt:
     AI=response["message"]["content"]
 
     st.write("AI:", AI)
-    st.session_state.message.append({
+    st.session_state.messages.append({
             "role":"assistant",
             "content":AI
         })
